@@ -1,0 +1,202 @@
+@import "reset.less";
+
+@content-color: #272b33;
+@content-size: 14px;
+@title-color: rgba(255,255,255,1);
+
+@bg-color: #7babbf;
+@inverse-color: #2c2b30;
+
+@page-width: 860px;
+
+@contact-bg: rgba(58,121,139, 1);
+
+.clearfix {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: @inverse-color;
+    background-color: @bg-color;
+}
+
+ul { 
+   list-style-type: disc; 
+   list-style-position: outside; 
+}
+ol { 
+   list-style-type: decimal; 
+   list-style-position: outside;
+
+   &.letters {
+       list-style-type: lower-alpha;
+   }
+
+   &.roman {
+       list-style-type: lower-roman;
+   }
+}
+ul, ol {
+   margin-left: 20px; 
+}
+
+.header-image {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-top: 80px;
+
+    @media screen and (max-width: 420px) {
+        margin-top: 0;
+        .header-banner {
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+        }
+    }
+    
+    .header-banner {
+        width: 100%;
+        min-height: 140px;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px 0 15px 0;
+        .header-content {
+            color: @inverse-color;
+            letter-spacing: 0.2em;
+            h1 {
+                font-size: 36px;
+                padding: 10px;
+            }
+            h2 {
+                font-size: 24px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.content {
+    background-color: #FFFFFF;
+    margin-top: -5px;
+    height: 100%;
+    padding: 35px 30px;
+    
+    color: @content-color;
+    .content-section {
+        padding: 30px;
+        @media screen and (max-width: 420px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        position: relative;
+        .jump-target {
+            pointer-events: none;
+            visibility: hidden;
+            height: 1px;
+            position: absolute;
+            top: -80px;
+        }
+    }
+
+    h1 {
+        letter-spacing: 0.2em;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        min-height: 40px;
+        border-left: 40px solid @bg-color;
+        padding-left: 10px;
+        
+        &.light-h1 {
+            border-color: @bg-color;
+        }
+        &.dark-h1 {
+            border-color: @inverse-color;
+        }
+    }
+    h2 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    p, .section {
+        color: @content-color;
+        padding-top: 30px;
+        line-height: 20px;
+        ul, ol {
+            padding: 10px 0;
+            li {
+                padding: 5px 0;
+            }
+        }
+    }
+    
+}
+
+.content-section {
+    max-width: 860px;
+    width: 100%;
+    padding: 0 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: @inverse-color;
+    color: @title-color;
+    font-size: 16px;
+
+    @media screen and (max-width: 420px) {
+        display: none;
+    }
+    
+    .jump {
+        float: right;
+        height: 80px;
+        line-height: 80px;
+        span {
+            display: inline-block;
+            padding: 0 0 0 40px;
+            @media screen and (max-width: 600px) {
+                padding-left: 10px;
+                font-size: 12px;
+            }
+        }
+        a {
+            text-decoration: none;
+            color: @title-color;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 5px;
+            letter-spacing: 0.1em;
+            &:hover {
+                border-bottom: 1px solid @title-color;
+            }
+        }
+    }
+}
+
+a {
+    color: @content-color;
+    font-weight: bold;
+    text-decoration: none;
+    word-wrap: break-word;
+    &:hover {
+        text-decoration: underline;
+    }
+}
